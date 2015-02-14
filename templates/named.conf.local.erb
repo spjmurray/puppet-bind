@@ -1,0 +1,5 @@
+zone "<%= @name %>" {
+  type master;
+  file "/var/lib/bind/zones/db.<%= @name %>";
+  allow-update { 0.0.0.0/0; };
+};
