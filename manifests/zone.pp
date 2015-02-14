@@ -8,7 +8,7 @@ define bind::zone {
     ensure  => file,
     owner   => 'bind',
     group   => 'bind',
-    mode    => '0664',
+    mode    => '0644',
     content => template('bind/zone.erb'),
     replace => false,
   }
