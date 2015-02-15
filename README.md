@@ -23,10 +23,12 @@ Any host is allowed to perform updates on any zone.
 Create a server with forward and reverse DNS zones
 
 ```puppet
-include ::bind
-
-bind::zone { 'example.com': }
-bind::zone { '0.16.172.in-addr.arpa': }
+class { 'bind':
+  zones => [
+    'example.com',
+    '0.16.172.in-addr.arpa',
+  ],
+}
 ```
 
 ##Limitations

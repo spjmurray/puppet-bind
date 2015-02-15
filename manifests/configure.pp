@@ -5,6 +5,7 @@ class bind::configure {
   include ::bind
 
   $forwarders = $bind::forwarders
+  $zones = $bind::zones
   $rndc_key = $bind::rndc_key
 
   File {
@@ -18,6 +19,8 @@ class bind::configure {
     group  => 'bind',
     mode   => '0775',
   }
+
+  bind::zone { $zones: }
 
   file { '/etc/bind/named.conf':
     ensure  => file,
